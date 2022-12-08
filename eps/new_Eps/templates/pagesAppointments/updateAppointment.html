@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+{% block titulo %} Eps Rufus | Actualizacion de citas{% endblock titulo %}
+
+
+{% block navHeader %}
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <div class="container-fluid">
+      <a class="navbar-brand" href="{% url 'index' %}">EPS RUFUS</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+  
+      <div class="collapse navbar-collapse" id="navbarColor01">
+        <ul class="navbar-nav me-auto">
+          <li class="nav-item">
+            <a class="nav-link " href="{% url 'createAppointment' %}">Crear Cita</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'readAppointment' %}">Ver Cita</a>
+          </li>
+          
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'index' %}">Atras</a>
+          </li>
+        </ul>
+        <form class="d-flex">
+          <input class="form-control me-sm-2" type="text" placeholder="Search">
+          <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+        </form>
+      </div>
+    </div>
+     
+</nav>
+{% endblock navHeader %}
+{% comment %} 
+
+#TODO TERMINAR VIDEO , VAMOS EN 1:06:47
+{% endcomment %}
+{% block contenido %}
+</br>
+</br>
+<div class="card">
+  <div class="card-header">
+    Actualizar cita
+  </div>
+  <div class="card-body">
+    <h4 class="card-title">Datos de la cita</h4>
+    {% include "pagesAppointments/formAppointment.html" %}  
+  </div>
+  <div class="card-footer text-muted">
+  </div>
+</div>
+{% endblock contenido %}

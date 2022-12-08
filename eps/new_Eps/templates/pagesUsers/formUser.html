@@ -1,0 +1,93 @@
+<form enctype="multipart/form-data" method="post">
+  {% csrf_token %}
+  {% for campo in formUser %}
+      <div class="mb-3">
+        <label for="" class="form-label">{{campo.label}}</label>
+        <input 
+          type="{{campo.field.widget.input_type}}"
+          class="form-control" 
+          name="{{campo.name}}"
+          id="" 
+          aria-describedby="helpId" 
+          placeholder="{{campo.label}}"
+          value='{{campo.value | default:''}}'>
+        </div>
+      <div class="col-12 help-text">{{campo.errors}}</div>
+    {% endfor %}
+    <input name="" id="" class="btn btn-success" type="Submit" value="Enviar">
+    <a name="" id="" class="btn btn-danger" href="{% url 'readUsers' %}" role="button">Cancelar</a>
+  
+
+  {% comment %} <div class="mb-3">
+    <label for="" class="form-label">id</label>
+    <input type="number"
+      class="form-control" name="" id="" aria-describedby="helpId" placeholder="">
+    <small id="helpId" class="form-text text-muted">Help text</small>
+  </div>
+  <div class="mb-3">
+    <label for="" class="form-label">Nombres</label>
+    <input type="text"
+      class="form-control" name="" id="" aria-describedby="helpId" placeholder="">
+    <small id="helpId" class="form-text text-muted">Help text</small>
+  </div>
+  <div class="mb-3">
+    <label for="" class="form-label">Apellidos</label>
+    <input type="text"
+      class="form-control" name="" id="" aria-describedby="helpId" placeholder="">
+    <small id="helpId" class="form-text text-muted">Help text</small>
+  </div>
+  <div class="mb-3">
+    <label for="" class="form-label">Celular</label>
+    <input type="number"
+      class="form-control" name="" id="" aria-describedby="helpId" placeholder="">
+    <small id="helpId" class="form-text text-muted">Help text</small>
+  </div>
+  <div class="mb-3">
+    <label for="" class="form-label">Correo ELectronico</label>
+    <input type="email"
+      class="form-control" name="" id="" aria-describedby="helpId" placeholder="">
+    <small id="helpId" class="form-text text-muted">Help text</small>
+  </div>
+  <div class="mb-3">
+    <label for="" class="form-label">Direccion</label>
+    <input type="text"
+      class="form-control" name="" id="" aria-describedby="helpId" placeholder="">
+    <small id="helpId" class="form-text text-muted">Help text</small>
+  </div>
+  <div class="mb-3">
+    <label for="" class="form-label">Edad</label>
+    <input type="number"
+      class="form-control" name="" id="" aria-describedby="helpId" placeholder="">
+    <small id="helpId" class="form-text text-muted">Help text</small>
+  </div>
+  <div class="mb-3">
+    <label for="" class="form-label">Sede</label>
+    <input type="text"
+      class="form-control" name="" id="" aria-describedby="helpId" placeholder="">
+    <small id="helpId" class="form-text text-muted">Help text</small>
+  </div>
+  <div class="mb-3">
+    <label for="" class="form-label">Tipo de Usuario</label>
+    <input type="text"
+      class="form-control" name="" id="" aria-describedby="helpId" placeholder="">
+    <small id="helpId" class="form-text text-muted">Help text</small>
+  </div>
+  <div class="mb-3">
+    <label for="" class="form-label">Tipo de Contrato</label>
+    <input type="text"
+      class="form-control" name="" id="" aria-describedby="helpId" placeholder="">
+    <small id="helpId" class="form-text text-muted">Help text</small>
+  </div>
+  <div class="mb-3">
+    <label for="" class="form-label">Plan</label>
+    <input type="text"
+      class="form-control" name="" id="" aria-describedby="helpId" placeholder="">
+    <small id="helpId" class="form-text text-muted">Help text</small>
+  </div>
+  <div class="mb-3">
+    <label for="" class="form-label">Enviar</label>
+    <input type="Submit"
+      class="form-control" name="" id="" aria-describedby="helpId" placeholder="">
+    <small id="helpId" class="form-text text-muted">Help text</small>
+  </div> {% endcomment %}
+</form>

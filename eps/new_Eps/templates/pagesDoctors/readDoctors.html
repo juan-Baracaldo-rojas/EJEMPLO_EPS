@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+
+{% block titulo %} Eps Rufus | Ver Doctores{% endblock titulo %}
+
+{% block navHeader %}
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="{% url 'index' %}">EPS RUFUS</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+    
+        <div class="collapse navbar-collapse" id="navbarColor01">
+          <ul class="navbar-nav me-auto">
+            <li class="nav-item">
+              <a class="nav-link " href="{% url 'createDoctor' %}">Crear Doctor
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="{% url 'readDoctors' %}">Ver Doctores
+              <span class="visually-hidden">(current)</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'index' %}">Atras</a>
+            </li>
+          </ul>
+          <form class="d-flex">
+            <input class="form-control me-sm-2" type="text" placeholder="Search">
+            <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+          </form>
+        </div>
+      </div>
+       
+</nav>
+{% endblock navHeader %}
+
+{% block contenido %}
+</br>
+</br>
+<h1>Lista de Doctores</h1>
+<table class="table">
+  <thead>
+    <tr>
+      <th>id Doc</th>
+      <th>nombre</th>
+      <th>n° consultorio</th>
+      <th>Especialidad </th>
+      <th>Cel </th>
+      <th>Password</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for doctor in  doctors%}
+    <tr>
+      <th>{{doctor.id}} </th>
+      <th>{{doctor.nombre}}  </th>
+      <th>{{doctor.n_Consultorio}} </th>
+      <th>{{doctor.especialidad}} </th>
+      <th>{{doctor.celular}} </th>
+      <th>{{doctor.password}} </th>
+      <th>
+        <a name="" id="" class="btn btn-info" href="{% url 'updateDoctor' doctor.id%}" role="button">Editar</a>
+        |
+        <a name="" id="" class="btn btn-danger" href="{% url 'deleteDoctor' doctor.id %}" role="button">Eliminar</a>
+      </th>
+    </tr>
+    {% endfor %}
+    
+  </tbody>
+</table>
+
+{% endblock contenido %}

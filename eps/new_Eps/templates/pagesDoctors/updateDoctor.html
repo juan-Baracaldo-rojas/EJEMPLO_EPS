@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+{% block titulo %} Eps Rufus | Actualizacion Doctor {% endblock titulo %}
+
+{% block navHeader %}
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <div class="container-fluid">
+      <a class="navbar-brand" href="{% url 'index' %}">EPS RUFUS</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+  
+      <div class="collapse navbar-collapse" id="navbarColor01">
+        <ul class="navbar-nav me-auto">
+          <li class="nav-item">
+            <a class="nav-link " href="{% url 'createDoctor' %}">Crear Doctor</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'readDoctors' %}">Ver Doctores</a>
+          </li>
+         
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'index' %}">Atras</a>
+          </li>
+        </ul>
+        <form class="d-flex">
+          <input class="form-control me-sm-2" type="text" placeholder="Search">
+          <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+        </form>
+      </div>
+    </div>
+     
+</nav>
+{% endblock navHeader %}
+
+{% block contenido %}
+</br>
+</br>
+<div class="card">
+  <div class="card-header">
+    Actualizar Doctor
+  </div>
+  <div class="card-body">
+    <h4 class="card-title">Datos a Actualizar del Doctor</h4>
+    {% include "pagesDoctors/formDoctor.html" %}
+  </div>
+  <div class="card-footer text-muted">
+  </div>
+</div>
+{% endblock contenido %}

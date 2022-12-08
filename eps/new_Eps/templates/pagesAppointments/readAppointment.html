@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+
+{% block titulo %} Eps Rufus|Ver citas{% endblock titulo %}
+
+{% block navHeader %}
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="{% url 'index' %}">EPS RUFUS</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+    
+        <div class="collapse navbar-collapse" id="navbarColor01">
+          <ul class="navbar-nav me-auto">
+            <li class="nav-item">
+              <a class="nav-link " href="{% url 'createAppointment' %}">Crear Cita</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="{% url 'readAppointment' %}">Ver Cita
+                <span class="visually-hidden">(current)</span>
+              </a>
+            </li>
+            
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'index' %}">Atras</a>
+            </li>
+          </ul>
+          <form class="d-flex">
+            <input class="form-control me-sm-2" type="text" placeholder="Search">
+            <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+          </form>
+        </div>
+      </div>
+       
+</nav>
+{% endblock navHeader %}
+
+{% block contenido %}
+</br>
+</br>
+<h1>Lista de Citas</h1>
+<table class="table">
+    <thead>
+        <tr>
+            <th>id</th>
+            <th>fecha Cita</th>
+            <th>id usuario</th>
+            <th>n° Consultorio</th>
+            <th>Doctor</th>
+            <th>Especialidad Doctor</th>
+            <th>modalidad</th>
+            <th>Estado</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+      {% for appointment in appointments %}
+        <tr>
+          <th>{{appointment.id}}</th>
+          <th>{{appointment.fecha_Cita}}</th>
+          <th>{{appointment.id_Usuario}}</th>
+          <th>{{appointment.n_Consultorio}}</th>
+          <th>{{appointment.nombre_Doctor}}</th>
+          <th>{{appointment.especialidad_Doctor}}</th>
+          <th>{{appointment.modalidad}}</th>
+          <th>{{appointment.estado}}</th>
+          <th>
+            <a name="" id="" class="btn btn-info" href="{% url 'updateAppointment' appointment.id %}" role="button">Editar</a>
+            |
+            <a name="" id="" class="btn btn-danger" href="{% url 'deleteAppointment' appointment.id %}" role="button">Eliminar</a>
+          </th>
+        </tr> 
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endblock contenido %}
